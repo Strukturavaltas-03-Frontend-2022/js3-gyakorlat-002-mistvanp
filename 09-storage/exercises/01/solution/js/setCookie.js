@@ -1,1 +1,10 @@
-export default setCookie;
+// 1. Írj egy `setCookie` nevű függvényt, ami a paraméterként kapott stringet eltárolja
+// egy `token` nevű sütiben, ami 15 perc után lejár!
+'use strict';
+
+const setCookie = (name) => {
+    const expires = new Date(Date.now() + 15 * 60 * 1000).toUTCString();
+    document.cookie = `token=${name};expires=${expires}`;
+  };
+  
+  export default setCookie;
