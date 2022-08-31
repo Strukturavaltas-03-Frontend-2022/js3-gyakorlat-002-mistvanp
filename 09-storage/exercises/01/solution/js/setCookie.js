@@ -2,15 +2,9 @@
 // egy `token` nevű sütiben, ami 15 perc után lejár!
 'use strict';
 
-const setCookie = {
-    getCookie(name) {
-        const token = document.cookie
-        .split('; ')
-        .find(cookie => cookie.startsWith(`${name}=`))
-        
-    }
-}
-
-
-
-export default setCookie;
+const setCookie = (name) => {
+    const expires = new Date(Date.now() + 15 * 60 * 1000).toUTCString();
+    document.cookie = `token=${name};expires=${expires}`;
+  };
+  
+  export default setCookie;
